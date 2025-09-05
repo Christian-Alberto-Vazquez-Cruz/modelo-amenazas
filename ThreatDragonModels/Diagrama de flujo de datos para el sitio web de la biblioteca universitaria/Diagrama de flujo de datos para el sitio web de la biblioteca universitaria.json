@@ -1485,7 +1485,7 @@
         "cells": [
           {
             "position": {
-              "x": 230,
+              "x": 170,
               "y": 190
             },
             "size": {
@@ -1591,7 +1591,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Usuarios",
-              "description": "(1) Usuario web anónimo. \n(2) Usuario con credenciales de inicio \nde sesión válidas. \n(3) Usuario con credenciales de inicio \nde sesión no válidas. ",
+              "description": "NC-1 Usuario web anónimo. \nNC-2 Usuario con credenciales de \ninicio de sesión válidas. \nNC-3 Usuario con credenciales de \ninicio de sesión no válidas. ",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -1605,7 +1605,7 @@
                   "severity": "Low",
                   "type": "Spoofing",
                   "description": "Acción de amenaza destinada a acceder y utilizar las credenciales de otro usuario, como el nombre de usuario y la contraseña. ",
-                  "mitigation": "1. Autenticación adecuada \n2. Proteger datos secretos \n3. No almacenar secretos ",
+                  "mitigation": "Autenticación, protección de secretos, no almacenar secretos",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 14,
@@ -1613,7 +1613,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 2,
+                "spoofing": 3,
                 "repudiation": 0
               }
             }
@@ -1726,7 +1726,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Controlador web",
-              "description": "Controlador de entrada que recibe las peticiones del usuario para iniciar la sesión. ",
+              "description": "Controlador de entrada que recibe las peticiones del usuario para iniciar la sesión",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1743,7 +1743,7 @@
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "Un atacante podría denegar el acceso a usuarios válidos, haciendo que el servidor web no esté disponible o sea inutilizable temporalmente por medio del envío de múltiples peticiones simultaneas. ",
-                  "mitigation": "Se utiliza un balanceo de cargas en el servidor web. Se monitorean las direcciones IP de los clientes y al encontrar un posible ataque, se bloquea el acceso. Se considera contratar un servicio de VPN para ocultar la dirección IP pública a los clientes. ",
+                  "mitigation": "Balanceo de cargas en servidor web, monitoreo de direcciones IP con fin de bloquear acceso, VPN que oculte direcciones de usuarios",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 15,
@@ -1755,7 +1755,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1868,7 +1868,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Proceso de login",
-              "description": "Procedimiento que recibe las peticiones del usuario para iniciar la sesión.",
+              "description": "Procedimiento que recibe las peticiones del usuario para iniciar la sesión",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1885,7 +1885,7 @@
                   "severity": "Medium",
                   "type": "Elevation of privilege",
                   "description": "Un atacante podría realizar un ataque con un diccionario para tratar de adivinar la contraseña de los \nusuarios.",
-                  "mitigation": "Se deben bloquear la cuenta después de N intentos fallidos. Se deben validar la complejidad y longitud de las contraseñas. ",
+                  "mitigation": "Políticas de contraseña",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 22,
@@ -1898,7 +1898,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 1
+                "elevationOfPrivilege": 2
               }
             }
           },
@@ -2159,7 +2159,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Base de datos",
-              "description": "El servidor de la base de datos será MySQL y se ejecutará en un servidor Linux. Este servidor será reforzado según el estándar de protección de servidores de la universidad. Esto incluirá la instalación de los últimos parches de seguridad del sistema operativo y de las aplicaciones. ",
+              "description": "El servidor de la base de datos será MySQL",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -2177,7 +2177,7 @@
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "Un atacante podría enviar una consulta a la BD. ",
-                  "mitigation": "Requerir que todas las consultas sean autenticadas. ",
+                  "mitigation": "Controles de acceso",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 23,
@@ -2190,7 +2190,7 @@
                   "severity": "Medium",
                   "type": "Information disclosure",
                   "description": "Un atacante podría obtener las credenciales de la base de datos y utilizarlas para realizar consultas no \nautorizadas. ",
-                  "mitigation": "Utilice un firewall para restringir el acceso a la base de datos únicamente a la dirección IP del trabajador en segundo plano. ",
+                  "mitigation": "Controles de acceso, auditoría, ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 24,
@@ -2198,11 +2198,18 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2316,7 +2323,7 @@
             },
             "vertices": [
               {
-                "x": 450,
+                "x": 390,
                 "y": 140
               }
             ]
@@ -2387,7 +2394,7 @@
             },
             "vertices": [
               {
-                "x": 460,
+                "x": 400,
                 "y": 300
               }
             ]
