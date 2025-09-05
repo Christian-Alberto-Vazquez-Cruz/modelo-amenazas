@@ -8,7 +8,7 @@
   },
   "detail": {
     "contributors": [],
-"diagrams": [
+    "diagrams": [
       {
         "id": 0,
         "title": "Diagrama de flujo de datos para el sitio web de la biblioteca",
@@ -745,7 +745,7 @@
           },
           {
             "position": {
-              "x": 910,
+              "x": 880,
               "y": 70
             },
             "size": {
@@ -876,6 +876,13 @@
                 "spoofing": 3,
                 "repudiation": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1314,7 +1321,7 @@
             ],
             "id": "ef2a74d7-1101-43ed-b2f7-59615c2f99ec",
             "source": {
-              "x": 840,
+              "x": 810,
               "y": 350
             },
             "target": {
