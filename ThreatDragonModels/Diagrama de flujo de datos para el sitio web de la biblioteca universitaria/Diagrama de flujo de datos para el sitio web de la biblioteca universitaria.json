@@ -130,7 +130,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Base de datos",
-              "description": "El servidor de la base de datos será MySQL y se ejecutará en un servidor Linux. Este servidor será reforzado según el estándar de protección de servidores de la universidad. Esto incluirá la instalación de los últimos parches de seguridad del sistema operativo y de las aplicaciones. ",
+              "description": "El servidor de la base de datos será MySQL ",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -178,8 +178,8 @@
           },
           {
             "position": {
-              "x": 816.25,
-              "y": 570
+              "x": 866.25,
+              "y": 550
             },
             "size": {
               "width": 120,
@@ -307,7 +307,7 @@
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "La configuración de la aplicación web almacena las credenciales utilizadas por la aplicación web para acceder a la cola de mensajes. Un atacante podría robarlos y utilizarlos para leer datos confidenciales o colocar mensajes dudosos en la cola. ",
-                  "mitigation": "Las credenciales de almacenadas deben estar cifradas.",
+                  "mitigation": "Cifrado de credenciales",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 13,
@@ -317,15 +317,15 @@
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             }
           },
           {
             "position": {
-              "x": 660,
-              "y": 570
+              "x": 630,
+              "y": 550
             },
             "size": {
               "width": 120,
@@ -591,7 +591,7 @@
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "Un atacante podría denegar el acceso a usuarios válidos, haciendo que el servidor web no esté disponible o sea inutilizable temporalmente por medio del envío de múltiples peticiones simultaneas. ",
-                  "mitigation": "Se utiliza un balanceo de cargas en el servidor web. Se monitorean las direcciones IP de los clientes y al encontrar un posible ataque, se bloquea el acceso. Se considera contratar un servicio de VPN para ocultar la dirección IP pública a los clientes.",
+                  "mitigation": "Balanceo de cargas en servidor web, monitoreo de direcciones IP con fin de bloquear acceso, VPN que oculte direcciones de usuarios",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 3,
@@ -603,7 +603,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 3,
+                "denialOfService": 4,
                 "elevationOfPrivilege": 0
               }
             }
@@ -716,7 +716,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Usuarios",
-              "description": "(1) Usuario web anónimo. \n(2) Usuario con credenciales de \ninicio de sesión válidas. \n(3) Usuario con credenciales de \ninicio de sesión no válidas. ",
+              "description": "NC-1 Usuario web anónimo. \nNC-2 Usuario con credenciales de \ninicio de sesión válidas. \nNC-3 Usuario con credenciales de \ninicio de sesión no válidas. ",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -730,7 +730,7 @@
                   "severity": "Low",
                   "type": "Spoofing",
                   "description": "Acción de amenaza destinada a acceder y utilizar las credenciales de otro usuario, como el nombre de usuario y la contraseña. ",
-                  "mitigation": "1. Autenticación \nadecuada \n2. Proteger datos secretos \n3. No almacenar secretos ",
+                  "mitigation": "Autenticación, protección de secretos, no almacenar secretos\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 1,
@@ -738,7 +738,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 3,
+                "spoofing": 5,
                 "repudiation": 0
               }
             }
@@ -851,7 +851,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Bibliotecario",
-              "description": "(4) Bibliotecario.",
+              "description": "NC-4 Bibliotecario.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -876,6 +876,13 @@
                 "spoofing": 3,
                 "repudiation": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -909,96 +916,6 @@
                 "y": 210
               }
             ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Páginas",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "Páginas"
-            ],
-            "id": "bb5889ab-646a-4246-b737-909e5bda96ed",
-            "source": {
-              "cell": "b65fbfc6-0c27-42e6-8418-e0667ec7ea86",
-              "port": "7ea577e2-6988-4147-a919-3b51c4543424"
-            },
-            "target": {
-              "cell": "7d6d65bf-e339-4cf0-954b-2737ae5b10ba",
-              "port": "7055283a-59bb-49a0-b693-d1103671d99e"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Lee web app config",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "Lee web app config"
-            ],
-            "id": "fbb94df8-5470-426c-8a3f-1331495d6164",
-            "source": {
-              "cell": "07643247-f7f7-4717-8027-f63682a7dd79",
-              "port": "7ea577e2-6988-4147-a919-3b51c4543424"
-            },
-            "target": {
-              "cell": "7d6d65bf-e339-4cf0-954b-2737ae5b10ba",
-              "port": "7055283a-59bb-49a0-b693-d1103671d99e"
-            }
           },
           {
             "shape": "trust-boundary-curve",
@@ -1387,6 +1304,10 @@
               {
                 "x": 670,
                 "y": 250
+              },
+              {
+                "x": 690,
+                "y": 280
               }
             ]
           },
@@ -1459,6 +1380,98 @@
                 "y": 330
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Lee web app config",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Lee web app config"
+            ],
+            "id": "fbb94df8-5470-426c-8a3f-1331495d6164",
+            "source": {
+              "cell": "07643247-f7f7-4717-8027-f63682a7dd79",
+              "port": "7ea577e2-6988-4147-a919-3b51c4543424"
+            },
+            "target": {
+              "cell": "7d6d65bf-e339-4cf0-954b-2737ae5b10ba",
+              "port": "7055283a-59bb-49a0-b693-d1103671d99e"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Páginas",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Páginas"
+            ],
+            "id": "bb5889ab-646a-4246-b737-909e5bda96ed",
+            "source": {
+              "cell": "b65fbfc6-0c27-42e6-8418-e0667ec7ea86",
+              "port": "7ea577e2-6988-4147-a919-3b51c4543424"
+            },
+            "target": {
+              "cell": "7d6d65bf-e339-4cf0-954b-2737ae5b10ba",
+              "port": "7055283a-59bb-49a0-b693-d1103671d99e"
+            },
+            "vertices": []
           }
         ]
       },
