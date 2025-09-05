@@ -2204,13 +2204,9 @@
                 "denialOfService": 0
               }
             },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
-            }
+            "children": [
+              "894d412a-3c6d-4858-a3da-2b3062adef15"
+            ]
           },
           {
             "shape": "flow",
@@ -2398,71 +2394,6 @@
                 "y": 300
               }
             ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Usuario autenticado \nSQL Query",
-              "description": "Instrucciones de SQL enviadas hacia la base de datos.",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "b57c57d1-a59f-47ec-aeec-ee0c2e6b7b30",
-                  "title": "Ataque Man in the middle ",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información \nconfidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada). ",
-                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos. ",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 19,
-                  "score": "11"
-                }
-              ],
-              "threatFrequency": {
-                "tampering": 0,
-                "informationDisclosure": 1,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "Usuario autenticado \nSQL Query"
-            ],
-            "id": "1dff6ada-511c-460c-8d6f-d8ff57655a97",
-            "source": {
-              "cell": "fff98f2d-279d-4def-95cc-45acb65f822d",
-              "port": "0ddd4ac2-e45a-4eb0-8bf6-8908bb134c65"
-            },
-            "target": {
-              "cell": "d3ee5b11-959c-4ee0-bf73-6e0d98074cf6",
-              "port": "d65fc69e-6b67-447c-9c55-52b1e2e2df55"
-            },
-            "vertices": []
           },
           {
             "shape": "flow",
@@ -2722,6 +2653,118 @@
                 "y": 230
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "894d412a-3c6d-4858-a3da-2b3062adef15",
+            "source": {
+              "cell": "d3ee5b11-959c-4ee0-bf73-6e0d98074cf6",
+              "port": "d65fc69e-6b67-447c-9c55-52b1e2e2df55"
+            },
+            "target": {
+              "cell": "d3ee5b11-959c-4ee0-bf73-6e0d98074cf6",
+              "port": "d65fc69e-6b67-447c-9c55-52b1e2e2df55"
+            },
+            "vertices": [],
+            "parent": "d3ee5b11-959c-4ee0-bf73-6e0d98074cf6"
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Usuario autenticado \nSQL Query",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b57c57d1-a59f-47ec-aeec-ee0c2e6b7b30",
+                  "title": "Ataque Man in the middle ",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información \nconfidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada). ",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "11"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Usuario autenticado \nSQL Query"
+            ],
+            "id": "1dff6ada-511c-460c-8d6f-d8ff57655a97",
+            "source": {
+              "cell": "fff98f2d-279d-4def-95cc-45acb65f822d",
+              "port": "0ddd4ac2-e45a-4eb0-8bf6-8908bb134c65"
+            },
+            "target": {
+              "cell": "d3ee5b11-959c-4ee0-bf73-6e0d98074cf6",
+              "port": "d65fc69e-6b67-447c-9c55-52b1e2e2df55"
+            },
+            "vertices": []
           }
         ]
       }
